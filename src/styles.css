@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+body{
+    background: rgb(18,24,41);
+    background: linear-gradient(90deg, rgba(18,24,41,1) 16%, rgba(16,35,57,1) 32%, rgba(39,35,66,1) 50%, rgba(12,50,50,1) 66%, rgba(18,25,41,1) 81%);
+}
+
+.input-group{
+    width: 350px;
+}
+
+nav{
+    background-color: #191B40;
+    
+}
+
+.nav-link {
+    color: white;
+}
+
+.card-body{
+    background-color: #0a0b1c;
+}

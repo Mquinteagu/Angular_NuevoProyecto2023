@@ -1,32 +1,52 @@
 <section class="mt-5 mx-5 text-light">
-    <h1>PelisUP!</h1>
-    <h6>Plataforma para ver películas y Series 😉</h6>
-  </section>
-  
-  <section class="my-5 mx-5">
-    <div class="mb-3 input-group">
-      <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-search"></i></span>
-      <input type="search" class="form-control" id="exampleFormControlInput1" placeholder="Buscar películas y series">
-    </div>
-  </section>
-  <section>
-    <div class="mx-5 d-flex">
-      <div class="card-group">
-        <a href="#" class="btn btn-outline-info">Todos</a>
+  <h1>PelisUP!</h1>
+  <h6>Plataforma para ver películas y Series 😉</h6>
+</section>
+
+<section class="my-5 mx-5">
+  <div class="mb-3 input-group">
+    <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-search"></i></span>
+    <input type="search" class="form-control" id="exampleFormControlInput1" placeholder="Buscar películas y series" [(ngModel)]= "search" (ngModelChange)="searchMovie()">
+  </div>
+</section> 
+<section class="my-5 mx-5">
+  <div class="btn-group">
+    <button class="btn btn-outline-info" [ngClass]="filter === 'Todos' ? 'btn-selected' :''" role="button" (click)="changeFilter('Todos')">Todos</button>
+    <button class="btn btn-outline-info" [ngClass]="filter === 'Peliculas' ? 'btn-selected' :''" role="button" (click)="changeFilter('Peliculas')">Peliculas</button>
+    <button class="btn btn-outline-info" [ngClass]="filter === 'Series' ? 'btn-selected' :''" role="button" (click)="changeFilter('Series')">Series</button>
+  </div>
+</section>
+
+<section class="mt-5 mx-5">
+  <div class="my-3 d-flex text-light">
+    <h4>Todos</h4>
+    <h6>(120)</h6>
+  </div>
+  <!--<app-movie-card></app-movie-card>-->
+
+  <div class="row row-cols-1 row-cols-sm-4 g-4">
+    <div class="col" *ngFor="let movie of movies_series">
+      <div class="card" *ngIf="movie.category === 'Movie' && filter === 'Peliculas'">
+        <img [src]="movie.image" class="card-img-top" [alt]="movie.image">
+        <div class="card-body text-light">
+          <h2>{{movie.name}}</h2>
+          <p class="card-text">{{movie.description}}</p>
+        </div>
       </div>
-      <div class="card-group">
-        <a href="#" class="btn btn-outline-info">Películas</a>
+      <div class="card" *ngIf="movie.category === 'Serie' && filter === 'Series'">
+        <img [src]="movie.image" class="card-img-top" [alt]="movie.image">
+        <div class="card-body text-light">
+          <h2>{{movie.name}}</h2>
+          <p class="card-text">{{movie.description}}</p>
+        </div>
       </div>
-      <div class="card-group">
-        <a href="#" class="btn btn-outline-info">Series</a>
+      <div class="card" *ngIf="filter === 'Todos'">
+        <img [src]="movie.image" class="card-img-top" [alt]="movie.image">
+        <div class="card-body text-light">
+          <h2>{{movie.name}}</h2>
+          <p class="card-text">{{movie.description}}</p>
+        </div>
       </div>
     </div>
-  </section>
-  
-  <section class="mt-5 mx-5">
-    <div class="my-3 d-flex text-light">
-      <h4>Todos</h4>
-      <h6>(120)</h6>
-    </div>
-    <app-movie-card></app-movie-card>
-  </section>
+  </div>
+</section>

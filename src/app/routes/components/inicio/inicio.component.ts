@@ -74,19 +74,42 @@ export class InicioComponent {
     }
   ];
 
-  filter: 'Todos' | 'Peliculas' | 'Series' = 'Todos';
-
-  changeFilter = (filtro: 'Todos' | 'Peliculas' | 'Series') => {
-    this.filter = filtro;
-  };
+  movieFilter: MoviesSeries[] = [];
+  movieResult: MoviesSeries[] = [];
+  filter: string = 'Todos';
+  toSearch: string = '';
   
-  search: string = 'consulta de prueba'
-
-  searchMovie(){
-    let peliculaEncontrada;
-    peliculaEncontrada = this.movies_series.find((movie) => {
-      return movie.name === this.search;
-    });
+  ngOnInit(): void {
+    this.movieResult = this.movieFilter = this.movies_series;
   }
-}
+
+  search(text: string) {
+    console.log(text);
+    this.movieResult = [];
+    if (text.length) {
+      this.movieFilter.forEach((data) => {
+        if (data.name?.toLowerCase().includes(text.toLowerCase()))
+        this.movieResult.push(data);
+      });
+    } else this.movieResult =this.movieFilter;
+  }
+
+  changeFilter(value: string) {
+    this.toSearch = '';
+    this.filter = value;
+    if (value.length === 0) this.movieFilter = this.movies_series;
+    else {
+      this.movieFilter = this.movies_series.filter(
+        (item) => item.category === value
+      );
+    }
+    this.movieResult = this.movieFilter
+    console.log(this.movieResult);
+  }
+  
+  //changeFilter = (filtro: 'Todos' | 'Peliculas' | 'Series') => {
+    //this.filter = filtro;
+  //};
+  
+} 
 

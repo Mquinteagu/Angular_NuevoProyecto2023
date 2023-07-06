@@ -6,3 +6,4 @@ export interface MoviesSeries {
     rating: string, 
     category: "Movie" | "Serie"
 }
+

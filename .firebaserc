@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "pelisup-4222b": {
+      "hosting": {
+        "proyecto_nuevoangular": [
+          "pelisup-4222b"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "pelisup-4222b"
+  }
+}

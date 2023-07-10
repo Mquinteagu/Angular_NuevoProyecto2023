@@ -7,6 +7,10 @@ import { SharedModule } from './shared/shared.module';
 import { LayoutModule } from './layout/layout.module';
 import { RoutesModule } from './routes/routes.module';
 import { HttpClientModule } from '@angular/common/http';
+import { environment } from '../environments/environment';
+import { AngularFireModule } from '@angular/fire/compat';
+
+
 
 @NgModule({
   declarations: [
@@ -19,6 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     LayoutModule,
     RoutesModule,
     HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase),
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -5,7 +5,7 @@ import { PeliculasComponent } from './components/peliculas/peliculas.component';
 import { SeriesComponent } from './components/series/series.component';
 import { IngresarComponent } from './components/ingresar/ingresar.component';
 import { SharedModule } from '../shared/shared.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -20,6 +20,7 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     SharedModule,
     FormsModule,
+    ReactiveFormsModule
   ],
   exports:  [
     InicioComponent,

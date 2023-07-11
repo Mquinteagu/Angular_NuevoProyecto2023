@@ -8,6 +8,7 @@ import { RoutesModule } from './routes/routes.module';
 import { environment } from '../environments/environment';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AngularFireModule } from '@angular/fire/compat';
     LayoutModule,
     RoutesModule,
     AngularFireModule.initializeApp(environment.firebase),
-    provideFirestore(() => getFirestore())
+    provideFirestore(() => getFirestore()),
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

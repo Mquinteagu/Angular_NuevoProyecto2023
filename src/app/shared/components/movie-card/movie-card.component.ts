@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { MoviesSeries } from 'src/app/types/moviesSeries';
 
 @Component({
   selector: 'app-movie-card',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class MovieCardComponent {
 
+  @Input() data: MoviesSeries[] = [];
+  @Input() title : string = 'Titulo';
+  @Input() img : string = 'imagen';
+
+  constructor() {}
+
+  ngOnInit(): void {}
 }

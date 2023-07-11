@@ -9,7 +9,7 @@ export class AuthService {
 
   constructor(private afAuth: AngularFireAuth) {}
 
-  async registrar(email: string, password: string): Promise<any> {
+  async register(email: string, password: string): Promise<any> {
     return this.afAuth.createUserWithEmailAndPassword(email, password);
   }
 

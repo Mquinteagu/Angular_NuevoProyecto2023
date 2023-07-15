@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
@@ -18,6 +19,7 @@ export class IngresarComponent {
   constructor(
     private authService: AuthService,
     private formBuilder: FormBuilder,
+    private router: Router
   ) { }
 
   campoEsValido(campo: string) {
@@ -36,6 +38,7 @@ export class IngresarComponent {
       console.log('RESPUESTA', response);
       response = JSON.stringify(response);
       localStorage.setItem('user', response);
+      this.router.navigate(['dashboard']);
       alert('USUARIO CORRECTO')
     }).catch((error) => {
       console.log('ERROR', error);
@@ -63,6 +66,7 @@ export class IngresarComponent {
     this.authService.loginWithGoogle().then((response) => {
       console.log('RESPUESTA', response);
       response = JSON.stringify(response);
+      this.router.navigate(['dashboard']);
       localStorage.setItem('user', response);
       alert('USUARIO CORRECTO')
     }).catch((error) => {

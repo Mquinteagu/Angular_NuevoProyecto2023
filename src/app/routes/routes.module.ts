@@ -6,6 +6,7 @@ import { SeriesComponent } from './components/series/series.component';
 import { IngresarComponent } from './components/ingresar/ingresar.component';
 import { SharedModule } from '../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DasboardComponent } from './components/dasboard/dasboard.component';
 
 
 
@@ -14,7 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     InicioComponent,
     PeliculasComponent,
     SeriesComponent,
-    IngresarComponent
+    IngresarComponent,
+    DasboardComponent
   ],
   imports: [
     CommonModule,
@@ -26,7 +28,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     InicioComponent,
     PeliculasComponent,
     SeriesComponent,
-    IngresarComponent
+    IngresarComponent,
+    DasboardComponent
   ]
 })
 export class RoutesModule { }

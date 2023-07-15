@@ -7,3 +7,4 @@ export interface MoviesSeries {
     category: "Movie" | "Serie"
 }
 
+

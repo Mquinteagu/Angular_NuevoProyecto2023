@@ -1,3 +1,20 @@
-<div class="p-3 text-light" >
-    <h3>Hola, si funciona jejeje</h3>
-</div>
+<section class="my-5 mx-5 text-light">
+    <h1>Películas</h1>
+</section>
+<section class="my-3 mx-5">
+    <div class="mb-2 input-group">
+        <span class="input-group-text" id="inputGroupPrepend">
+            <i class="bi bi-search"></i>
+        </span>
+        <input type="search" class="form-control" id="exampleFormControlInput1" placeholder="Buscar películas y series">
+    </div>
+</section>
+<section class="my-5 mx-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-3 m-2" *ngFor="let item of movies">
+                <app-movie-card (AddMovie)="addMovieToFirebase($event)" (DeleteMovie)="deleteMovieFromFirebase($event)" [id]="item.id" [title]="item.title || item.name" [img]="'https://www.themoviedb.org/t/p/w220_and_h330_face' + item.poster_path"></app-movie-card>
+            </div>
+        </div>
+    </div>
+</section>

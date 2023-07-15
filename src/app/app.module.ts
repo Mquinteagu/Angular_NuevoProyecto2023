@@ -6,13 +6,17 @@ import { SharedModule } from './shared/shared.module';
 import { LayoutModule } from './layout/layout.module';
 import { RoutesModule } from './routes/routes.module';
 import { environment } from '../environments/environment';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { provideFirestore,getFirestore, FirestoreModule } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { HttpClientModule } from '@angular/common/http';
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { PeliculasComponent } from './routes/components/peliculas/peliculas.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -21,10 +25,12 @@ import { HttpClientModule } from '@angular/common/http';
     LayoutModule,
     RoutesModule,
     AngularFireModule.initializeApp(environment.firebase),
-    provideFirestore(() => getFirestore()),
     HttpClientModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore()),
   ],
-  providers: [],
+  providers: [ {provide: FIREBASE_OPTIONS, useValue: environment.firebase} ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,20 @@
+.caja{
+    padding: 100px 150px 170px;
+}
+
+.cuadritos {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    cursor: pointer;
+    background-color: #000B24;
+}
+
+.cuadritos h4 {
+    font-size: 40px;
+    color: white;
+}
+
+.cuadritos p {
+    font-size: 20px;
+    color: gray;
+}

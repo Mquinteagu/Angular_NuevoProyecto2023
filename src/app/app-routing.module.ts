@@ -4,6 +4,7 @@ import { InicioComponent } from './routes/components/inicio/inicio.component';
 import { PeliculasComponent } from './routes/components/peliculas/peliculas.component';
 import { SeriesComponent } from './routes/components/series/series.component';
 import { IngresarComponent } from './routes/components/ingresar/ingresar.component';
+import { DasboardComponent } from './routes/components/dasboard/dasboard.component';
 
 const routes: Routes = [
   {
@@ -23,8 +24,12 @@ const routes: Routes = [
     component: IngresarComponent
   }, 
   {
+    path: 'dashboard',
+    component: DasboardComponent
+  },
+  {
     path: "**",
-    redirectTo: "inicio"
+    redirectTo: "inicio"  
   }
 ];
 

@@ -1,3 +1,20 @@
-<div class="p-3 text-light" >
-    <h3>jejeje</h3>
-</div>
+<section class="my-5 mx-5 text-light">
+    <h1>Series</h1>
+</section>
+<section class="my-3 mx-5">
+    <div class="mb-2 input-group">
+        <span class="input-group-text" id="inputGroupPrepend">
+            <i class="bi bi-search"></i>
+        </span>
+        <input type="search" class="form-control" id="exampleFormControlInput1" placeholder="Buscar series">
+    </div>
+</section>
+<section class="my-5 mx-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-3 my-3" *ngFor="let item of series">
+                <app-movie-card (AddSerie)="addSerieToFirebase($event)" (DeleteSerie)="deleteSerieFromFirebase($event)" [id]="item.id" [title]="item.title || item.name" [img]="'https://www.themoviedb.org/t/p/w220_and_h330_face' + item.poster_path"></app-movie-card>
+            </div>
+        </div>
+    </div>
+</section>

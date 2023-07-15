@@ -15,6 +15,8 @@ export class MovieCardComponent {
   @Input() estadoBoton: boolean = true;
   @Output() AddMovie = new EventEmitter<number>();
   @Output() DeleteMovie = new EventEmitter<number>();
+  @Output() AddSerie = new EventEmitter<number>();
+  @Output() DeleteSerie = new EventEmitter<number>();
 
 
   constructor(){}
@@ -27,6 +29,14 @@ export class MovieCardComponent {
 
   deleteMovie() {
     this.DeleteMovie.emit(this.id);
+  }
+
+  addSerie() {
+    this.AddSerie.emit(this.id);
+  }
+
+  deleteSerie() {
+    this.DeleteSerie.emit(this.id);
   }
 
 }

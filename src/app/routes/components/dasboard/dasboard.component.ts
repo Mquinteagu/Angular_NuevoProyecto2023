@@ -10,6 +10,7 @@ import { FirestoreService } from 'src/app/services/firestore.service';
 export class DasboardComponent {
   
   totalPeliculas = 0;
+  totalSeries = 0;
 
   constructor(
     private router: Router,
@@ -19,6 +20,7 @@ export class DasboardComponent {
 
   ngOnInit(){
     this.obtenerPeliculas();
+    this.obtenerSeries();
   }
 
   redirectTo(ruta: string) {
@@ -27,6 +29,14 @@ export class DasboardComponent {
 
   obtenerPeliculas() {
     this._firestoreService.getMovie().subscribe({
+      next: (response) => {
+        this.totalPeliculas = response.length;
+      }
+    })
+  }
+
+  obtenerSeries() {
+    this._firestoreService.getSerie().subscribe({
       next: (response) => {
         this.totalPeliculas = response.length;
       }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Firestore, collectionData, addDoc, doc, collection, deleteDoc } from '@angular/fire/firestore';
 import { Movie } from '../types/Movies';
+import { Serie } from "../types/Series";
 
 
 @Injectable({
@@ -32,5 +33,19 @@ export class FirestoreService {
     console.log(documentMovieRef);
     return deleteDoc(documentMovieRef);
   }
-  
+
+  addSerie(data: Serie ) {
+    const collectionSerieRef = collection(this.firestore, 'series');
+    return addDoc(collectionSerieRef, data).then((response) => {
+      console.log('TODO OK', response);
+    }).catch((error) => {
+      console.log('ERROR', error);   
+    })
+  }
+
+  getSerie() {
+    const collectionSerieRef = collection(this.firestore, 'series');
+    return collectionData(collectionSerieRef, { idField: 'id'}) as Observable<Serie[]>;
+  }
+
 }

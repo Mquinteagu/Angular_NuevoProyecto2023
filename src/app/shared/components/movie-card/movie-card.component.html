@@ -5,17 +5,6 @@
     <div class="card-footer">
       <button *ngIf="estadoBoton" class="btn btn-outline-info" (click)="addMovie()" (click)="addSerie()">Agregar a mi
         lista</button>
-      <button *ngIf="!estadoBoton" class="btn btn-outline-danger" (click)="deleteMovie()">Eliminar de mi lista</button>
+      <button *ngIf="!estadoBoton" class="btn btn-outline-danger" (click)="deleteMovie()" (click)="deleteSerie()">Eliminar de mi lista</button>
     </div>
-    <ng-container *ngFor="let item of data">
-      <ng-container *ngIf="filter === 'Todos'">
-        <ng-container *ngIf="showButtons">
-          <button *ngIf="estadoBoton" class="btn btn-outline-success" (click)="addSerie()">
-            Agregar a mi lista
-          </button>
-          <button *ngIf="!estadoBoton" class="btn btn-outline-danger" (click)="deleteSerie()">
-            Eliminar de mi lista
-          </button>
-        </ng-container>
-      </ng-container>
-    </ng-container>
+</div>

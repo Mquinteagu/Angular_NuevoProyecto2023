@@ -38,7 +38,7 @@ export class DasboardComponent {
   obtenerSeries() {
     this._firestoreService.getSerie().subscribe({
       next: (response) => {
-        this.totalPeliculas = response.length;
+        this.totalSeries = response.length;
       }
     })
   }

@@ -13,7 +13,7 @@
     <div class="container">
         <div class="row">
             <div class="col-3 my-3" *ngFor="let item of series">
-                <app-movie-card (AddSerie)="addSerieToFirebase($event)" (DeleteSerie)="deleteSerieFromFirebase($event)" [id]="item.id" [title]="item.title || item.name" [img]="'https://www.themoviedb.org/t/p/w220_and_h330_face' + item.poster_path"></app-movie-card>
+                <app-movie-card (AddSerie)="addSerieToFirebase($event)" (DeleteSerie)="deleteSerieFromFirebase($event)"  [showButtons]=true [id]="item.id" [title]="item.title || item.name" [img]="'https://www.themoviedb.org/t/p/w220_and_h330_face' + item.poster_path"></app-movie-card>
             </div>
         </div>
     </div>
